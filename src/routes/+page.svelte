@@ -1,6 +1,7 @@
 <script>
     import Arrow from "$lib/Arrow.svelte";
     import Box from "$lib/Box.svelte";
+    import SocialIcon from "$lib/SocialIcon.svelte";
 </script>
 
 <style lang="scss">
@@ -43,4 +44,12 @@
     <div class="left">
         <Box color="purple" href="/youtube">YouTube</Box>
     </div>
+</div>
+
+<div class="socials">
+    <SocialIcon type="twitter" href="https://twitter.com/connellsharp" />
+    <SocialIcon type="github" href="https://github.com/connellsharp" />
+    <SocialIcon type="stackoverflow" href="https://stackoverflow.com/users/369247/connell" />
+    <SocialIcon type="youtube" href="https://youtube.com/@drawingboxes" />
+    <SocialIcon type="sessionize" href="https://sessionize.com/connell/" />
 </div>
