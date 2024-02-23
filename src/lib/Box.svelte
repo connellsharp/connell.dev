@@ -9,7 +9,6 @@
     vertical-align: middle;
     border-radius: 10px;
     text-align: center;
-    margin: 20px;
 
     a {
         display:block;
