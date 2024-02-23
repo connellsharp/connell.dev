@@ -1,0 +1,21 @@
+body {
+    --blue: #347BCD;
+    --red: #df2214;
+    --green: #3a7a24;
+    --yellow: #f8ba00;
+    --purple: #be4cac;
+
+    --background: #fff;
+    --grey-middle: #888;
+    --foreground: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --blue: #4390e8;
+
+        --background: #222;
+        --grey-middle: #aaa;
+        --foreground: #eee;
+    }
+}
