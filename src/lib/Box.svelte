@@ -10,6 +10,9 @@
     border-radius: 10px;
     text-align: center;
 
+    font-size:1.2em;
+    font-weight: 500;
+
     a {
         display:block;
         width: 130px;

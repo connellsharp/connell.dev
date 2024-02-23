@@ -8,6 +8,4 @@
     
 </style>
 
-<div class="layout">
-    <slot />
-</div>
+<slot />

@@ -6,7 +6,10 @@ body {
     --purple: #be4cac;
 
     --background: #fff;
+    --background-off: #eee;
+    --background-off2: #ccc;
     --grey-middle: #888;
+    --foreground-off: #666;
     --foreground: #333;
 }
 
@@ -15,7 +18,10 @@ body {
         --blue: #4390e8;
 
         --background: #222;
+        --background-off: #333;
+        --background-off2: #555;
         --grey-middle: #aaa;
+        --foreground-off: #bbb;
         --foreground: #eee;
     }
 }

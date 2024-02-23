@@ -4,6 +4,11 @@
 </script>
 
 <style>
+    a {
+        display: inline-block;
+        margin: 10px;
+    }
+
     .icon {
         display: inline-block;
         vertical-align: middle;
@@ -11,6 +16,7 @@
         height: 50px;
         border-radius: 50%;
         line-height: 50px;
+        padding: 5px;
     }
 </style>
 
