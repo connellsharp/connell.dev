@@ -17,7 +17,7 @@ footer {
 
 <div id="wrapper">
     <div class="not-footer">
-        <slot name="main" />
+        <slot name="not-footer" />
     </div>
     <footer>
         <slot name="footer" />

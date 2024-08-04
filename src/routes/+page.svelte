@@ -8,7 +8,7 @@
 </script>
 
 <StickyFooter>
-    <div slot="main" id="home">
+    <div slot="not-footer">
         <TopBar />
 
         <HomeBoxes links={navLinks} />

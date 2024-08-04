@@ -5,12 +5,26 @@
     import { navLinks } from "$lib/navLinks";
 </script>
 
-<StickyFooter>
-    <div slot="main">
-        <TopBar navLinks={navLinks} />
-    </div>
+<style>
+    
+    #main {
+        width: 100%;
+        max-width: 740px;
+        margin: 20px auto;
+        padding: 20px 0;
+        border-top: 1px solid;
+        border-color: #eee;
+    }
+</style>
 
-    <slot />
+<StickyFooter>
+    <div slot="not-footer">
+        <TopBar navLinks={navLinks} />
+        
+        <div id="main">
+            <slot />
+        </div>
+    </div>
     
     <div slot="footer">
         <Copyright />

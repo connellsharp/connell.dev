@@ -1,9 +1,7 @@
 <script>
-    import StickyFooter from "$lib/StickyFooter.svelte";
-    import SocialIcons from "$lib/SocialIcons.svelte";
-    import TopBar from "$lib/TopBar.svelte";
+    import Preamble from "$lib/Preamble.svelte";
 </script>
 
-<style>
-</style>
-
+<Preamble>
+    I occasionally speak at conferences and meetups, and some of those get recorded, so you can watch those here.
+</Preamble>

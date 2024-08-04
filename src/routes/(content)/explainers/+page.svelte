@@ -1,9 +1,7 @@
 <script>
-    import StickyFooter from "$lib/StickyFooter.svelte";
-    import SocialIcons from "$lib/SocialIcons.svelte";
-    import TopBar from "$lib/TopBar.svelte";
+    import Preamble from "$lib/Preamble.svelte";
 </script>
 
-<style>
-</style>
-
+<Preamble>
+    I make short explainer videos for my YouTube channel: <a href="https://www.youtube.com/@drawingboxes">Drawing Boxes</a>.
+</Preamble>
