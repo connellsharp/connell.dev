@@ -16,6 +16,8 @@ body {
 @media (prefers-color-scheme: dark) {
     body {
         --blue: #4390e8;
+        --green: #56b238;
+        --purple: #d35cc1;
 
         --background: #222;
         --background-off: #333;

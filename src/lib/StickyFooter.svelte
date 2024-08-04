@@ -1,30 +1,24 @@
 <style>
-.not-footer {
+#wrapper {
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
-  margin-bottom: -80px;
 }
 
-.not-footer:after {
-  content: "";
-  display: block;
-  height: 100px;
-}
-
-.wrapper-footer {
-  height: 80px;
-  border-top: 1px solid var(--background-off2);
+.not-footer {
+    flex: 1;
 }
 
 footer {
-  height: 80px;
-  text-align: center;
   background-color: var(--background-off);
+  border-top: 1px solid var(--background-off2);
 }
 </style>
-<div class="not-footer">
-    <slot name="main" />
-</div>
-<div class="wrapper-footer">
+
+<div id="wrapper">
+    <div class="not-footer">
+        <slot name="main" />
+    </div>
     <footer>
         <slot name="footer" />
     </footer>

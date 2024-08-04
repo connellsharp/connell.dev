@@ -4,8 +4,4 @@
     import '../styles/global.scss';
 </script>
 
-<style>
-    
-</style>
-
 <slot />
