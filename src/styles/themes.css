@@ -9,6 +9,7 @@ body {
     --background-off: #eee;
     --background-off2: #ccc;
     --grey-middle: #888;
+    --foreground-faded: #aaa;
     --foreground-off: #666;
     --foreground: #333;
 }
@@ -23,6 +24,7 @@ body {
         --background-off: #333;
         --background-off2: #555;
         --grey-middle: #aaa;
+        --foreground-faded: #888;
         --foreground-off: #bbb;
         --foreground: #eee;
     }
