@@ -1,6 +1,10 @@
-<script>
+<script lang="ts">
     import Entry from "./Entry.svelte";
     import EntryMeta from "./EntryMeta.svelte";
+
+    export let title: string;
+    export let url: string;
+    export let meta: { date: Date; tags: string[] };
 </script>
 
 <style lang="scss">
@@ -26,15 +30,15 @@
 </style>
 
 <Entry>
-    <h2><a href="/the-only-agile-meetings-you-need/">The Only Agile Meetings You Need</a></h2>
+    <h2><a href={url}>{title}</a></h2>
   
-    <EntryMeta date="1st August 2023" tags={["teams", "agile", "meetings"]} />
+    <EntryMeta meta={meta} />
   
     <div class="content excerpt">
-      <p>Some places “do agile” because it’s the cool trendy thing that tech companies do nowadays. Their teams are usually mandated to do Scrum, which they take to mean two-week cycles with 2-3 hours of stand-up meetings, maybe 4 hours of refinement, 1-2 hours retro, another hour of sprint planning, another to demo, another higher-level roadmap meeting. That’s 10 hours of meetings even before you include all the ones you “took offline”.</p>
+        <slot />
     </div>
     
-    <a href="/the-only-agile-meetings-you-need/" class="read-more">
+    <a href={url} class="read-more">
       Read More
     </a>
 </Entry>
