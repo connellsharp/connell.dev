@@ -4,6 +4,7 @@
 
     export let title: string;
     export let url: string;
+    export let linkText: string | undefined;
     export let meta: { date: Date; tags: string[] };
 </script>
 
@@ -39,6 +40,6 @@
     </div>
     
     <a href={url} class="read-more">
-      Read More
+      {linkText ?? "Read more"}
     </a>
 </Entry>

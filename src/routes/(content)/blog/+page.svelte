@@ -11,7 +11,8 @@
             date: new Date(file.date),
             tags: file.tags,
         }}
-        url={file.url}
+        linkText={file.link?.text}
+        url={file.link?.url ?? file.url}
     >
         {@html file.excerpt}
     </EntryPreview>

@@ -61,5 +61,11 @@
                 color: var(--blue);
             }
         }
+
+        .tags {
+            a {
+                margin-right: 6px;
+            }
+        }
     }
 </style>
