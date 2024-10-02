@@ -13,8 +13,6 @@
         }}
         url={file.url}
     >
-        <p>
-            {@html file.excerpt}
-        </p>
+        {@html file.excerpt}
     </EntryPreview>
 {/each}
