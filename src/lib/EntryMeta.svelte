@@ -35,11 +35,13 @@
         {getDateString(meta.date)}
     </span>
 
-    <span class="tags">
-        {#each meta.tags as tag}
-            <a href="/tags/{tag}">#{tag}</a>
-        {/each}
-    </span>
+    {#if meta.tags && meta.tags.length > 0}
+        <span class="tags">
+            {#each meta.tags as tag}
+                <a href="/tags/{tag}">#{tag}</a>
+            {/each}
+        </span>
+    {/if}
 </div>
 
 <style lang="scss">
