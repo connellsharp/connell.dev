@@ -12,14 +12,26 @@
     .icon {
         display: inline-block;
         vertical-align: middle;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        line-height: 50px;
+        --size: 40px;
+        --scale: 1;
+        width: calc(var(--size) * var(--scale));
+        height: calc(var(--size) * var(--scale));
+        line-height: calc(var(--size) * var(--scale));
         padding: 5px;
+
+        &.twitter { content: url("/socials/twitter.svg"); --scale: 0.7; }
+        &.youtube { content: url("/socials/youtube.svg"); }
+        &.stackoverflow { content: url("/socials/stackoverflow.svg"); }
+        &.github { content: url("/socials/github.svg"); --scale: 0.8; }
+        &.sessionize { content: url("/socials/sessionize.svg"); --scale: 0.7; }
+
+        @media (prefers-color-scheme: dark) {
+            &.twitter { content: url("/socials/twitter-white.svg"); }
+            &.github { content: url("/socials/github-white.svg"); }
+        }
     }
 </style>
 
 <a href={href}>
-    <img class="icon" src={`/icons/${type}.svg`} alt={type} />
+    <img class="icon {type}" src={`/socials/${type}.svg`} alt={type} />
 </a>
