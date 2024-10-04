@@ -1,6 +1,7 @@
 <script>
     import StickyFooter from "$lib/StickyFooter.svelte";
     import HomeBoxes from "$lib/HomeBoxes.svelte";
+    import AboutMe from "$lib/AboutMe.svelte";
     import SocialIcons from "$lib/SocialIcons.svelte";
     import TopBar from "$lib/TopBar.svelte";
     import Copyright from "$lib/Copyright.svelte";
@@ -10,7 +11,7 @@
 <StickyFooter>
     <div slot="not-footer">
         <TopBar />
-
+        <AboutMe />
         <HomeBoxes links={navLinks} />
     </div>
     
