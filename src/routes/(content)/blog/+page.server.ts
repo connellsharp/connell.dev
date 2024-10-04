@@ -1,4 +1,4 @@
-const posts = import.meta.glob('/blog/*.md');
+const posts = import.meta.glob('/content/blog/*.md');
 
 export async function load({ params }) {
 
