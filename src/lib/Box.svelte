@@ -20,6 +20,10 @@
         padding: 20px;
         color: var(--background);
     }
+
+    &:hover {
+        filter: brightness(var(--hover-brightness));
+    }
 }
 </style>
 
