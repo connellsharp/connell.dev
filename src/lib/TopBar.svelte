@@ -46,6 +46,10 @@
     a.purple:hover {
         color: var(--purple);
     }
+
+    a.red:hover {
+        color: var(--red);
+    }
 </style>
 
 <header>
