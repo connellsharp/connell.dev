@@ -7,7 +7,8 @@
         line-height: 1.7;
         margin: 0 auto;
         padding: 0 10px;
-        max-width: 600px;
+        max-width: 630px;
+        text-align: justify;
     }
 </style>
 
