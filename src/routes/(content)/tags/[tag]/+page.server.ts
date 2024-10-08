@@ -16,11 +16,11 @@ export async function load({ params }) {
     const file = await getFile(filePath)
 
     const files = await Promise.all(Object.keys(allFiles).map(getFile));
-    const filesTagged = files.filter(f => f && f.tags && f.tags.includes(params.tag));
+    const filesTagged = files.filter(f => f && f.meta.tags && f.meta.tags.includes(params.tag));
 
     const allTagsWithCount = files
-        .filter(f => f.tags)
-        .flatMap(f => f.tags)
+        .filter(f => f.meta.tags)
+        .flatMap(f => f.meta.tags)
         .reduce((acc, tag) => {
             acc[tag] = (acc[tag] || 0) + 1;
             return acc;

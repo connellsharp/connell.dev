@@ -3,9 +3,8 @@
     import EntryMeta from "./EntryMeta.svelte";
 
     export let title: string;
-    export let url: string;
-    export let linkText: string | undefined;
-    export let meta: { date: Date; tags: string[] };
+    export let meta: { date: Date | undefined; tags: string[] };
+    export let link: { text: string; url: string } | undefined;
 </script>
 
 <style lang="scss">
@@ -31,7 +30,7 @@
 </style>
 
 <Entry>
-    <h2><a href={url}>{title}</a></h2>
+    <h2><a href={link.url}>{title}</a></h2>
   
     <EntryMeta meta={meta} />
   
@@ -39,7 +38,7 @@
         <slot />
     </div>
     
-    <a href={url} class="read-more">
-      {linkText ?? "Read more"}
+    <a href={link.externalUrl ?? link.url} class="read-more">
+      {link.text ?? "Read more"}
     </a>
 </Entry>

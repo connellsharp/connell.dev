@@ -1,8 +1,29 @@
 export type MarkdownModule = {
     attributes: {
         tags: string,
-        title: string
+        title: string,
+        link: {
+            url: string,
+            text: string
+        }
     },
+    html: string
+};
+
+export type MarkdownFile = {
+    title: string,
+    type: string,
+    slug: string,
+    meta: {
+        date: Date | undefined,
+        tags: string[]
+    },
+    link: {
+        url: string,
+        text: string,
+        externalUrl: string
+    },
+    excerpt: string,
     html: string
 };
 
@@ -44,12 +65,23 @@ export function findFilePath(filePaths: string[], type: string, slug: string) {
     return filePath;
 }
 
-export function markdownFile(filePath: string, module: MarkdownModule) 
+export function markdownFile(filePath: string, module: MarkdownModule) : MarkdownFile
 {
+    const info = fileInfo(filePath);
+
     return {
-        ...fileInfo(filePath),
-        ...module.attributes,
-        tags: module.attributes.tags?.split(" "),
+        title: module.attributes.title,
+        type: info.type,
+        slug: info.slug,
+        meta: {
+            date: info.date,
+            tags: module.attributes.tags?.split(" ") ?? []
+        },
+        link: {
+            url: info.url,
+            text: module.attributes.link?.text,
+            externalUrl: module.attributes.link?.url
+        },
         excerpt: module.html.split("\n")[0],
         html: module.html,
     };

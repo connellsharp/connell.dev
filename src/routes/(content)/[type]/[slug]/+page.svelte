@@ -11,12 +11,7 @@
 
 <EntryFull
     title={file.title}
-    meta={{
-        date: new Date(file.date),
-        tags: file.tags,
-    }}
-    linkText={file.link?.text}
-    url={file.link?.url ?? file.url}
+    meta={file.meta}
 >
     {@html file.html}
 </EntryFull>

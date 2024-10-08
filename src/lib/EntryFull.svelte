@@ -3,7 +3,7 @@
     import EntryMeta from "./EntryMeta.svelte";
 
     export let title: string;
-    export let meta: { date: Date; tags: string[] };
+    export let meta: { date: Date | undefined; tags: string[] };
 </script>
 
 <style lang="scss">

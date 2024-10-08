@@ -14,7 +14,7 @@ export async function load({ params }) {
         }));
 
     const sortedFiles = files.filter(file => file.slug != '_preamble' && file.type === params.type)
-                             .sort((a, b) => b.date - a.date);
+                             .sort((a, b) => b.meta.date - a.meta.date);
 
     return {
         title: toTitleCase(params.type),
