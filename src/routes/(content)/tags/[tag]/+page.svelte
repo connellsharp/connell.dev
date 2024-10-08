@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-    <title>#{data.tag} Tag - Connell</title> 
+    <title>{data.tagFile?.title ?? ('#' + data.tag)} - Connell</title> 
 </svelte:head>
 
 <TagCloud tags={data.allTags} selected={data.tag} />
