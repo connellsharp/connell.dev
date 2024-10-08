@@ -4,4 +4,4 @@
     export let data;
 </script>
 
-<TagCloud tags={data.tags} />
+<TagCloud tags={data.allTags} />

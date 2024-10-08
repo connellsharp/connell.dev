@@ -1,14 +1,18 @@
 <script>
     import TagCloud from "$lib/TagCloud.svelte";
     import EntryPreview from "$lib/EntryPreview.svelte";
+    import Preamble from "$lib/Preamble.svelte";
 
     export let data;
-    const tag = data.tagFile;
 </script>
 
-<TagCloud tags={data.allTags} selected={tag.slug} />
+<TagCloud tags={data.allTags} selected={data.tag} />
 
-{@html data.tagFile.excerpt}
+<Preamble>
+    {#if data.tagFile}
+        {@html data.tagFile.excerpt}
+    {/if}
+</Preamble>
 
 {#each data.contentFiles as file}
     <EntryPreview

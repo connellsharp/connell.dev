@@ -7,4 +7,16 @@ export async function load({ params }) {
             var module = await allFiles[key]() as MarkdownModule;
             return markdownFile(key, module);
         }));
+        
+    const allTagsWithCount = files
+        .filter(f => f.tags)
+        .flatMap(f => f.tags)
+        .reduce((acc, tag) => {
+            acc[tag] = (acc[tag] || 0) + 1;
+            return acc;
+        }, {});
+
+    return {
+        allTags: allTagsWithCount
+    };
 };

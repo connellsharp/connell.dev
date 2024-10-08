@@ -41,10 +41,6 @@ export function findFilePath(filePaths: string[], type: string, slug: string) {
         return keyInfo.type === type && keyInfo.slug === slug;
     });
 
-    if (!filePath) {
-        throw "Not found";
-    }
-
     return filePath;
 }
 
