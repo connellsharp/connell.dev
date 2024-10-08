@@ -5,6 +5,10 @@
     const file = data.file;
 </script>
 
+<svelte:head>
+    <title>{data.file.title} - Connell</title> 
+</svelte:head>
+
 <EntryFull
     title={file.title}
     meta={{

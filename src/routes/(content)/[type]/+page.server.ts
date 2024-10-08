@@ -1,6 +1,10 @@
 import { markdownFile, type MarkdownModule } from '$lib/markdown';
 const allFiles = import.meta.glob('/content/*/*.md');
 
+function toTitleCase(str: string) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 export async function load({ params }) {
 
     const files = await Promise.all(Object.keys(allFiles)
@@ -13,6 +17,7 @@ export async function load({ params }) {
                              .sort((a, b) => b.date - a.date);
 
     return {
+        title: toTitleCase(params.type),
         files: sortedFiles,
         preamble: files.find(file => file.slug === '_preamble' && file.type === params.type)?.html
     };

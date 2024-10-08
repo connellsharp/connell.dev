@@ -6,6 +6,10 @@
     export let data;
 </script>
 
+<svelte:head>
+    <title>#{data.tag} Tag - Connell</title> 
+</svelte:head>
+
 <TagCloud tags={data.allTags} selected={data.tag} />
 
 <Preamble>

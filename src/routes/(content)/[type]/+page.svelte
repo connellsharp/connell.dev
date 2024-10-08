@@ -5,6 +5,10 @@
     export let data;
 </script>
 
+<svelte:head>
+    <title>{data.title} - Connell</title> 
+</svelte:head>
+
 {#if data.preamble}
 <Preamble>
     {@html data.preamble}

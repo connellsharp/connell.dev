@@ -8,6 +8,10 @@
     import { navLinks } from "$lib/navLinks";
 </script>
 
+<svelte:head>
+    <title>Connell - Software Engineer</title> 
+</svelte:head>
+
 <StickyFooter>
     <div slot="not-footer">
         <TopBar />
