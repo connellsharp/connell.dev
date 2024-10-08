@@ -18,7 +18,7 @@ function getDate(numbers: string) {
     }
 }
 
-function getInfoFromFilename(filePath: string) {
+export function fileInfo(filePath: string) {
     const filePathEnd = filePath.replace(/^\/?(content)?\/?/, "");
     const pathSplit = filePathEnd.split("/");
     const type = pathSplit[0];
@@ -35,10 +35,23 @@ function getInfoFromFilename(filePath: string) {
     };
 }
 
+export function findFilePath(filePaths: string[], type: string, slug: string) {
+    const filePath = filePaths.find(key => {
+        const keyInfo = fileInfo(key);
+        return keyInfo.type === type && keyInfo.slug === slug;
+    });
+
+    if (!filePath) {
+        throw "Not found";
+    }
+
+    return filePath;
+}
+
 export function markdownFile(filePath: string, module: MarkdownModule) 
 {
     return {
-        ...getInfoFromFilename(filePath),
+        ...fileInfo(filePath),
         ...module.attributes,
         tags: module.attributes.tags?.split(" "),
         excerpt: module.html.split("\n")[0],

@@ -1,18 +1,11 @@
-import { markdownFile, type MarkdownModule } from '$lib/markdown.js';
+import { markdownFile, findFilePath, type MarkdownModule } from '$lib/markdown.js';
 
-const posts = import.meta.glob('/content/*/*.md');
+const files = import.meta.glob('/content/*/*.md');
 
 export async function load({ params }) {
-
-    var filename = Object.keys(posts).find(key => key.includes(params.type) && key.includes(params.slug));
-
-    if (!filename) {
-        throw "Not found";
-    }
-
-    const module = await posts[filename]() as MarkdownModule;
-
-    const file = markdownFile(filename, module);
+    const filePath = findFilePath(Object.keys(files), params.type, params.slug);
+    const module = await files[filePath]() as MarkdownModule;
+    const file = markdownFile(filePath, module);
         
     return { file: file };
 };
