@@ -1,10 +1,10 @@
 import { markdownFile, type MarkdownModule } from '$lib/markdown.js';
 
-const posts = import.meta.glob('/content/blog/*.md');
+const posts = import.meta.glob('/content/*/*.md');
 
 export async function load({ params }) {
 
-    var filename = Object.keys(posts).find(key => key.includes(params.slug));
+    var filename = Object.keys(posts).find(key => key.includes(params.type) && key.includes(params.slug));
 
     if (!filename) {
         throw "Not found";
