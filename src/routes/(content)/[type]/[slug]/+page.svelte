@@ -13,6 +13,7 @@
     title={file.title}
     meta={file.meta}
     youtubeId={file.youtubeId}
+    link={file.link}
 >
     {@html file.html}
 </EntryFull>

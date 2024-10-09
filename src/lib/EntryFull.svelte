@@ -1,11 +1,13 @@
 <script lang="ts">
     import Entry from "./Entry.svelte";
     import EntryMeta from "./EntryMeta.svelte";
+    import ReadMoreLink from "./ReadMoreLink.svelte";
     import YouTubeEmbed from "./YouTubeEmbed.svelte";
 
     export let title: string;
     export let meta: { date: Date | undefined; tags: string[] };
     export let youtubeId: string | undefined;
+    export let link: { text: string; externalUrl: string } | undefined;
 </script>
 
 <style lang="scss">
@@ -29,4 +31,8 @@
             <YouTubeEmbed id={youtubeId} />
         {/if}
     </div>
+    
+    {#if link.externalUrl}
+        <ReadMoreLink link={link} />
+    {/if}
 </Entry>

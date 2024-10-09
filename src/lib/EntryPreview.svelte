@@ -1,6 +1,7 @@
 <script lang="ts">
     import Entry from "./Entry.svelte";
     import EntryMeta from "./EntryMeta.svelte";
+    import ReadMoreLink from "./ReadMoreLink.svelte";
 
     export let title: string;
     export let meta: { date: Date | undefined; tags: string[] };
@@ -22,11 +23,6 @@
                 color: var(--blue);
             }
         }
-    }
-
-    .read-more {
-        text-transform: uppercase;
-        font-size: 0.9em;
     }
 
     .thumbnail {
@@ -58,13 +54,8 @@
     <div class="content excerpt">
         <slot />
     </div>
-    
-    <a href={link.externalUrl ?? link.url} class="read-more" target="{link.externalUrl ? '_blank' : ''}">
-      {link.text ?? "Read more"}
-      {#if link.externalUrl}
-        &nbsp;<img class="icon" src="/icons/newtab.svg" alt="Opens in new tab" />
-      {/if}
-    </a>
+
+    <ReadMoreLink link={link} />
 
     <div class="clear"></div>
 </Entry>
