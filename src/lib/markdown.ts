@@ -2,12 +2,14 @@ export type MarkdownModule = {
     attributes: {
         tags: string,
         title: string,
+        url: string,
         link: {
             url: string,
             text: string
         },
         thumbnail: string,
         youtube: string,
+        location: string,
     },
     html: string
 };
@@ -18,6 +20,7 @@ export type MarkdownFile = {
     slug: string,
     meta: {
         date: Date | undefined,
+        location: string,
         tags: string[]
     },
     link: {
@@ -83,15 +86,28 @@ export function markdownFile(filePath: string, module: MarkdownModule) : Markdow
         slug: info.slug,
         meta: {
             date: info.date,
+            location: module.attributes.location,
             tags: module.attributes.tags?.split(" ") ?? []
         },
         link: {
             url: info.url,
-            text: module.attributes.link?.text ?? (module.attributes.youtube ? "Watch Online" : "Read More"),
-            externalUrl: module.attributes.link?.url
+            text: module.attributes.link?.text ?? getLinkText(info.type),
+            externalUrl: module.attributes?.url ?? module.attributes.link?.url
         },
         thumbnail: module.attributes?.thumbnail ?? getYouTubeThumbnail(module.attributes.youtube),
         excerpt: module.html.split("\n")[0],
         html: module.html,
     };
+}
+
+function getLinkText(type: string): string {
+    switch(type) {
+        case "explainers":
+        case "talks":
+            return "Watch Online";
+            case "projects":
+                return "Go To Project";
+        default:
+            return "Read More";
+    }
 }

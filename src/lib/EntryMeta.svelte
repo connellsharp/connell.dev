@@ -31,9 +31,17 @@
 </script>
 
 <div class="entry-meta">
-    <span class="date">
-        {getDateString(meta.date)}
-    </span>
+    {#if meta.date}
+        <span class="date">
+            {getDateString(meta.date)}
+        </span>
+        
+    {/if}
+    {#if meta.location}
+        <span class="location">
+            {meta.location}
+        </span>
+    {/if}
 
     {#if meta.tags && meta.tags.length > 0}
         <span class="tags">
@@ -52,6 +60,19 @@
 
         span {
             padding-right: 20px;
+    
+            &:before {
+                margin-right: 3px;
+                vertical-align: middle;
+            }
+
+            &.date:before {
+                content: url('/icons/clock.svg');
+            }
+
+            &.location:before {
+                content: url('/icons/house.svg');
+            }
         }
 
         a {

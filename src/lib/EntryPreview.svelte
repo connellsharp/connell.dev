@@ -52,7 +52,10 @@
         <slot />
     </div>
     
-    <a href={link.externalUrl ?? link.url} class="read-more">
+    <a href={link.externalUrl ?? link.url} class="read-more" target="{link.externalUrl ? '_blank' : ''}">
       {link.text ?? "Read more"}
+      {#if link.externalUrl}
+        &nbsp;<img class="icon" src="/icons/newtab.svg" alt="Opens in new tab" />
+      {/if}
     </a>
 </Entry>
