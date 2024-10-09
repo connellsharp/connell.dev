@@ -16,7 +16,8 @@ export async function load({ params }) {
     const file = await getFile(filePath)
 
     const files = await Promise.all(Object.keys(allFiles).map(getFile));
-    const filesTagged = files.filter(f => f && f.meta.tags && f.meta.tags.includes(params.tag));
+    const filesTagged = files.filter(f => f && f.meta.tags && f.meta.tags.includes(params.tag))
+                             .sort((a, b) => b.meta.date - a.meta.date);
 
     const allTagsWithCount = files
         .filter(f => f.meta.tags)
