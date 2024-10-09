@@ -10,22 +10,27 @@
     const sortedTags = Object.keys(tags).sort((a, b) => a.localeCompare(b));
 </script>
 
-<style>
+<style lang="scss">
     .tag-cloud {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
         justify-content: center;
         align-items: center;
-    }
+        margin: -15px 0 20px;
 
-    .tag-cloud a {
-        color: var(--blue);
-    }
+        a {
+            color: var(--blue);
+        }
 
-    .tag-cloud .selected {
-      font-weight:bold;
-      color: var(--green);
+        a:hover {
+            color: var(--green);
+        }
+
+        .selected {
+            font-weight: bold;
+            color: var(--green);
+        }
     }
 </style>
 

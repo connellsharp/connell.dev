@@ -12,7 +12,6 @@
 footer {
   background-color: var(--background-off);
   border-top: 1px solid var(--background-off2);
-  margin-top: -21px;
 }
 </style>
 

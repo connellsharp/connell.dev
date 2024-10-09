@@ -12,11 +12,11 @@
 
 <TagCloud tags={data.allTags} selected={data.tag} />
 
-<Preamble>
-    {#if data.tagFile}
+{#if data.tagFile}
+    <Preamble>
         {@html data.tagFile.excerpt}
-    {/if}
-</Preamble>
+    </Preamble>
+{/if}
 
 {#each data.contentFiles as file}
     <EntryPreview

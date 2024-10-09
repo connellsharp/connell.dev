@@ -34,9 +34,6 @@
 
     .clear {
         clear: both;
-        padding-bottom: 2em;
-        border-bottom: 1px solid;
-        border-color: var(--background-off);
     }
 </style>
 
