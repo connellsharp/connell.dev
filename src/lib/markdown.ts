@@ -28,7 +28,8 @@ export type MarkdownFile = {
         text: string,
         externalUrl: string
     },
-    thumbnail: string,
+    thumbnail: string | undefined,
+    youtubeId: string | undefined,
     excerpt: string,
     html: string
 };
@@ -91,23 +92,24 @@ export function markdownFile(filePath: string, module: MarkdownModule) : Markdow
         },
         link: {
             url: info.url,
-            text: module.attributes.link?.text ?? getLinkText(info.type),
+            text: module.attributes.link?.text ?? getDefaultLinkText(info.type, module.attributes.youtube),
             externalUrl: module.attributes?.url ?? module.attributes.link?.url
         },
         thumbnail: module.attributes?.thumbnail ?? getYouTubeThumbnail(module.attributes.youtube),
+        youtubeId: module.attributes.youtube,
         excerpt: module.html.split("\n")[0],
         html: module.html,
     };
 }
 
-function getLinkText(type: string): string {
-    switch(type) {
-        case "explainers":
-        case "talks":
-            return "Watch Online";
-            case "projects":
-                return "Go To Project";
-        default:
-            return "Read More";
+function getDefaultLinkText(type: string, youtubeId: string): string {
+    if(youtubeId) {
+        return "Watch Online";
     }
+    
+    if(type === "projects") {
+        return "Go To Project";
+    }
+
+    return "Read More";
 }

@@ -12,6 +12,7 @@
 <EntryFull
     title={file.title}
     meta={file.meta}
+    youtubeId={file.youtubeId}
 >
     {@html file.html}
 </EntryFull>

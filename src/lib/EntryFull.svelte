@@ -1,9 +1,11 @@
 <script lang="ts">
     import Entry from "./Entry.svelte";
     import EntryMeta from "./EntryMeta.svelte";
+    import YouTubeEmbed from "./YouTubeEmbed.svelte";
 
     export let title: string;
     export let meta: { date: Date | undefined; tags: string[] };
+    export let youtubeId: string | undefined;
 </script>
 
 <style lang="scss">
@@ -22,5 +24,9 @@
   
     <div class="content">
         <slot />
+
+        {#if youtubeId}
+            <YouTubeEmbed id={youtubeId} />
+        {/if}
     </div>
 </Entry>
