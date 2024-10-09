@@ -6,6 +6,7 @@ body {
     --purple: #be4cac;
 
     --background: #fff;
+    --background-very-close: #fcfcfc;
     --background-off: #eee;
     --background-off2: #ccc;
     --grey-middle: #888;
@@ -23,6 +24,7 @@ body {
         --purple: #d35cc1;
 
         --background: #222;
+        --background-very-close: #282828;
         --background-off: #333;
         --background-off2: #555;
         --grey-middle: #aaa;

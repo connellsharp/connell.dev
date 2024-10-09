@@ -31,12 +31,10 @@ This is as agile as it gets; solve the problems that need solving when they need
 
 I'll bet your developers still get the copy-change right without that. I'll bet you all estimate it at 1 story point without much discussion. Spend that time on the things that matter instead.
 
-{:start="4"}
 4. We need **estimates** for a future task. You might not see these tasks on your Kanban board, but it's essentially the column before "to do".
 
 You might find another problem though.
 
-{:start="5"}
 5. We have no problems - everything is on track. You could end the meeting here if you want. But don't. **Have a bit of fun!** Play some games, get to know each other better. You might spend more time with each other than some people you'd call friends, so it's worth making an effort to make it pleasant.
 
 ## 2. Fortnightly Celebration
@@ -61,10 +59,8 @@ Again, this can lead you in a few directions:
 
 Then close the doors, go to a different call, or stop recording. It's time for the **retrospective**.
 
-{:start="4"}
 4. **Have some fun!** Maybe you didn't get a chance to during the daily meetings, so this is a great time to. Retros can sometimes get a bit heated even when they're totally blameless, so plan a little ice-breaker first; set some time aside to learn about each other's hobbies or play some games together. Strengthen the relationships in the team and build some trust.
 
-{:start="5"}
 5. Discuss what has happened since the last time and **decide how you could improve**. You can discuss the process itself. There's no real agenda, so I like a lite version of the [Lean Coffee format](http://leancoffee.org/) where people suggest topics then vote on them. There should be actionable output.
 
 ## The Difference

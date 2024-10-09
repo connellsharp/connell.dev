@@ -17,9 +17,9 @@ a {
   
     &:hover, &:active {
       color: var(--blue);
+      filter: brightness(var(--hover-brightness));
+      text-decoration: underline;
+      text-decoration-thickness: 0.5px;
+      text-underline-offset: 3px;
     }
-  }
-
-  p {
-      margin: 15px 0;
   }
