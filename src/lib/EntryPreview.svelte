@@ -32,21 +32,23 @@
     .thumbnail {
         float: right; 
         width: 240px;
-        max-width: 40%;
+        max-width: min(40%, 200px);
         margin: 0 0 1.5em 2em;
     }
+
+    .clear { clear: both;}
 </style>
 
 <Entry>
     <h2><a href={link.url}>{title}</a></h2>
+  
+    <EntryMeta meta={meta} />
 
     {#if thumbnail}
         <a href="{link.url}">
             <img class="thumbnail" src="{thumbnail}" />
         </a>
     {/if}
-  
-    <EntryMeta meta={meta} />
   
     <div class="content excerpt">
         <slot />
@@ -58,4 +60,6 @@
         &nbsp;<img class="icon" src="/icons/newtab.svg" alt="Opens in new tab" />
       {/if}
     </a>
+
+    <div class="clear"></div>
 </Entry>
