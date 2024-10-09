@@ -60,6 +60,11 @@ article .content {
         color: var(--foreground-off)
     }
 
+    h5 {
+        font-size: 1.05em;
+        font-weight: bold;
+    }
+
   blockquote {
     margin: 1.8em .8em;
     border-left: 2px solid;
@@ -89,9 +94,17 @@ article .content {
   }
   
   pre code {
-    font-size: 0.85em;
-    font-family:'Bitstream Vera Sans Mono','Courier', monospace;
     display: block;
     overflow-x: auto;
+  }
+
+  code {
+    font-size: 0.85em;
+    font-family:'Bitstream Vera Sans Mono','Courier', monospace;
+  }
+  
+  hr {
+    border-top: 1px solid var(--background-off);
+    border-bottom: none;
   }
 }

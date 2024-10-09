@@ -5,7 +5,7 @@
 <style>
     #about {
         line-height: 1.7;
-        margin: 0 auto;
+        margin: 20px auto;
         padding: 0 10px;
         max-width: 630px;
         text-align: justify;
