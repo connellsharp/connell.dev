@@ -20,6 +20,7 @@
         title={file.title}
         meta={file.meta}
         link={file.link}
+        thumbnail={file.thumbnail}
     >
         {@html file.excerpt}
     </EntryPreview>

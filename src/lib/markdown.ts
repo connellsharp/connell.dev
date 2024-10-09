@@ -5,7 +5,9 @@ export type MarkdownModule = {
         link: {
             url: string,
             text: string
-        }
+        },
+        thumbnail: string,
+        youtube: string,
     },
     html: string
 };
@@ -23,6 +25,7 @@ export type MarkdownFile = {
         text: string,
         externalUrl: string
     },
+    thumbnail: string,
     excerpt: string,
     html: string
 };
@@ -65,6 +68,11 @@ export function findFilePath(filePaths: string[], type: string, slug: string) {
     return filePath;
 }
 
+function getYouTubeThumbnail(youTubeId: string) {
+    if(!youTubeId) return undefined;
+    return `https://i.ytimg.com/vi/${youTubeId}/mqdefault.jpg`
+}
+
 export function markdownFile(filePath: string, module: MarkdownModule) : MarkdownFile
 {
     const info = fileInfo(filePath);
@@ -79,9 +87,10 @@ export function markdownFile(filePath: string, module: MarkdownModule) : Markdow
         },
         link: {
             url: info.url,
-            text: module.attributes.link?.text,
+            text: module.attributes.link?.text ?? (module.attributes.youtube ? "Watch Online" : "Read More"),
             externalUrl: module.attributes.link?.url
         },
+        thumbnail: module.attributes?.thumbnail ?? getYouTubeThumbnail(module.attributes.youtube),
         excerpt: module.html.split("\n")[0],
         html: module.html,
     };

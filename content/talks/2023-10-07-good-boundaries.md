@@ -2,7 +2,7 @@
 title: "Good Boundaries: Bounded Contexts and Conway's Law"
 location: DDD East Midlands Conference
 tags: architecture ddd bounded-contexts conways-law
-thumbnail: /images/thumbnails/dddem-2023.jpg
+thumbnail: /thumbnails/dddem-2023.jpg
 ---
 
 Deciding which things belong in which part of your system can make or break your architecture. To avoid creating a big ball of mud, we separate concerns and keep things organised. This talk takes us through different kinds of boundaries: What makes a good function? What makes a good class? A good service? We’ll discuss slicing vertically, building separate packages, and the trade-offs of splitting into many git repositories.
