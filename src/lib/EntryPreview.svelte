@@ -36,7 +36,12 @@
         margin: 0 0 1.5em 2em;
     }
 
-    .clear { clear: both;}
+    .clear {
+        clear: both;
+        padding-bottom: 2em;
+        border-bottom: 1px solid;
+        border-color: var(--background-off);
+    }
 </style>
 
 <Entry>
