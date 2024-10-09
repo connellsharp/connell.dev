@@ -9,8 +9,8 @@ export async function load({ params }) {
         }));
         
     const allTagsWithCount = files
-        .filter(f => f.tags)
-        .flatMap(f => f.tags)
+        .filter(f => f.meta.tags)
+        .flatMap(f => f.meta.tags)
         .reduce((acc, tag) => {
             acc[tag] = (acc[tag] || 0) + 1;
             return acc;
