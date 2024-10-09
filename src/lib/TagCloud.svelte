@@ -23,10 +23,6 @@
             color: var(--blue);
         }
 
-        a:hover {
-            color: var(--green);
-        }
-
         .selected {
             font-weight: bold;
             color: var(--green);
