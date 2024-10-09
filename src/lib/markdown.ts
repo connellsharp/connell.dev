@@ -97,9 +97,22 @@ export function markdownFile(filePath: string, module: MarkdownModule) : Markdow
         },
         thumbnail: module.attributes?.thumbnail ?? getYouTubeThumbnail(module.attributes.youtube),
         youtubeId: module.attributes.youtube,
-        excerpt: module.html.split("\n")[0],
+        excerpt: clipExcerpt(module.html),
         html: module.html,
     };
+}
+
+function clipExcerpt(fullHtml: string) {
+    const separator = "<!--more-->";
+    const separatorIndex = fullHtml.indexOf(separator);
+    const newLineIndex = fullHtml.indexOf("\n");
+    if(separatorIndex > 0) {
+        return fullHtml.substring(0, separatorIndex);
+    } else if(newLineIndex > 0) {
+        return fullHtml.substring(0, newLineIndex);
+    } else {
+        return fullHtml;
+    }
 }
 
 function getDefaultLinkText(type: string, youtubeId: string): string {
