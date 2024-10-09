@@ -1,3 +1,7 @@
+<script>
+    export let invertDarkImages = false;
+</script>
+
 <style>
     .entry {
         border-top: 1px solid;
@@ -6,6 +10,6 @@
     }
 </style>
 
-<article class="entry">
+<article class="entry {invertDarkImages ? "invert-dark-images" : ""}">
     <slot />
 </article>

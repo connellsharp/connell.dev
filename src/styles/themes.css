@@ -15,6 +15,7 @@ body {
     --foreground: #333;
 
     --hover-brightness: 1.1;
+    --inversion-filter: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,5 +34,6 @@ body {
         --foreground: #eee;
 
         --hover-brightness: 0.9;
+        --inversion-filter: invert(100%) hue-rotate(180deg) contrast(0.73) saturate(1.5);
     }
 }

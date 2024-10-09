@@ -7,6 +7,7 @@
     export let meta: { date: Date | undefined; tags: string[] };
     export let link: { text: string; url: string } | undefined;
     export let thumbnail: string | undefined;
+    export let invertDarkImages: boolean = false;
 </script>
 
 <style lang="scss">
@@ -37,7 +38,7 @@
     }
 </style>
 
-<Entry>
+<Entry {invertDarkImages}>
     <h2><a href={link.url}>{title}</a></h2>
   
     <EntryMeta meta={meta} />

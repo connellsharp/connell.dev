@@ -21,6 +21,7 @@
         meta={file.meta}
         link={file.link}
         thumbnail={file.thumbnail}
+        invertDarkImages={file.invertDarkImages}
     >
         {@html file.excerpt}
     </EntryPreview>

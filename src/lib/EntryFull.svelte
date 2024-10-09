@@ -8,6 +8,7 @@
     export let meta: { date: Date | undefined; tags: string[] };
     export let youtubeId: string | undefined;
     export let link: { text: string; externalUrl: string } | undefined;
+    export let invertDarkImages: boolean = false;
 
     import hljs from 'highlight.js';
     import '../styles/highlight.css';
@@ -29,7 +30,7 @@
     }
 </style>
 
-<Entry>
+<Entry {invertDarkImages}>
     <h1>{title}</h1>
   
     <EntryMeta meta={meta} />

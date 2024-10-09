@@ -14,6 +14,7 @@
     meta={file.meta}
     youtubeId={file.youtubeId}
     link={file.link}
+    invertDarkImages={file.invertDarkImages}
 >
     {@html file.html}
 </EntryFull>
