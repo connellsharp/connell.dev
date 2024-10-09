@@ -80,7 +80,7 @@ Exceptions propagate all the way up the call stack until they are caught. Let th
 
 First, let's address point #1 and make our code structure match how we break down this problem in our heads by introducing the concept of "a thing" in our code using a `DoAThing` method.
 
-```c#
+```csharp
 private MyResult DoAThing(SomeObject someObject)
 {
     _setterUpper.DoInitialSetup(someObject.SomeProperty);
@@ -90,7 +90,7 @@ private MyResult DoAThing(SomeObject someObject)
 
 Wonderful. Now, where should I put the logging? Inside this method? Or in the one that calls this? What would it look like if I create yet another method that has all the logging in it?
 
-```c#
+```csharp
 private MyResult DoAThingAndLogIt(SomeObject someObject)
 {
     _logger.Debug("About to do a thing.");
@@ -113,7 +113,7 @@ private MyResult DoAThingAndLogIt(SomeObject someObject)
 
 Note that both those methods accept a `SomeObject` parameter and return a `MyResult`. All we've done is wrap around the method and logged stuff. It would be easy to switch between those methods in the calling code.
 
-```c#
+```csharp
 public MyResult DoImportantLogic(string someArg)
 {
     var someObject = _objectGenerator.Create(someArg);
@@ -126,7 +126,7 @@ You might've noticed that all 3 of those methods used different fields from the 
 
 The innermost method `DoAThing` only needs two dependencies for its parent class.
 
-```c#
+```csharp
 public class ThingDoer : IThingDoer
 {
     public DoAThing(ISetterUpper setterUpper, IWorker worker) { /* set fields */ }
@@ -145,7 +145,7 @@ For the logging method in the middle, we need a dependency for the `IThingDoer` 
 
 Remember the methods have the same inputs and outputs. If we name the methods the same thing, this middle class conforms to the same `IThingDoer` interface above. This is the [Decorator Pattern](https://refactoring.guru/design-patterns/decorator).
 
-```c#
+```csharp
 public class LoggingThingDoer : IThingDoer
 {
     public LoggingThingDoer(IThingDoer innerThingDoer, ILogger logger) { /* set fields */ }
@@ -173,7 +173,7 @@ public class LoggingThingDoer : IThingDoer
 
 Our outermost class depends on `IThingDoer`, but it doesn't know whether that is just the `ThingDoer` or the `LoggingThingDoer`.
 
-```c#
+```csharp
 public class ImportantLogicDoer
 {
     public DoAThing(IObjectGenerator objectGenerator, IThingDoer thingDoer) { /* set fields */ }
@@ -189,7 +189,7 @@ public class ImportantLogicDoer
 
 So we decide whether the logging is included outside of all of this, when we are wiring up our dependencies.
 
-```c#
+```csharp
 IThingDoer originalThingDoer = new ThingDoer(new SetterUpper(), new Worker());
 IThingDoer decoratedThingDoer = new LoggingThingDoer(originalThingDoer, new Logger());
 ImportantLogicDoer logicDoer = new ImportantLogicDoer(new ObjectGenerator(), decoratedThingDoer);
@@ -197,7 +197,7 @@ ImportantLogicDoer logicDoer = new ImportantLogicDoer(new ObjectGenerator(), dec
 
 Of course you don't have to new-up the dependencies. [Autofac supports adding decorators with an easy one-liner](https://autofac.readthedocs.io/en/latest/advanced/adapters-decorators.html#decorators) and similar things are possible with other DI containers.
 
-```c#
+```csharp
 builder.RegisterDecorator<LoggingThingDoer, IThingDoer>();
 ```
 
@@ -211,7 +211,7 @@ Depending on what you want to "wrap around", there might already be a way to wri
 
 ASP.NET Core has [Middlewares](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/) or [Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters). Both of these ideas allow you to wrap around the call to the `next()` method in the pipeline, such as a controller action. This is the same idea. A global `LoggingActionFilter` is the same as a logging decorator for every controller.
 
-```c#
+```csharp
 public class LoggingActionFilter : IAsyncActionFilter
 {
     private readonly ILogger _logger;
@@ -242,7 +242,7 @@ public class LoggingActionFilter : IAsyncActionFilter
 
 MediatR and NServiceBus can have [Pipeline Behaviors](https://lostechies.com/jimmybogard/2014/09/09/tackling-cross-cutting-concerns-with-a-mediator-pipeline/) registered, which is the same idea where the `next()` function calls deeper into the pipeline.
 
-```c#
+```csharp
 public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
 {
     private readonly ILogger _logger;
@@ -287,7 +287,7 @@ This is where we add some magic and, I admit, it can get a little scary, but in 
 
 The [Castle.Core](https://github.com/castleproject/Core) library provides a DynamicProxy framework that can **create dynamic runtime types that decorate other classes**. These proxy types use interceptors for every method call, which have similar features to the filters/behaviors/handlers above.
 
-```c#
+```csharp
 public class LoggingInterceptor : IInterceptor
 {
     private ILogger _logger;
@@ -322,7 +322,7 @@ Something this generic would need a custom approach to dealing with which proper
 
 The `Castle.Core.DynamicProxy.IProxyGenerator` interface is used to create the proxy types at runtime. [Autofac supports wiring this up automatically](https://autofac.readthedocs.io/en/latest/advanced/interceptors.html) though its DynamicProxy extension.
 
-```c#
+```csharp
 builder.RegisterType<LoggingInterceptor>()
        .As<IInterceptor>();
 
@@ -347,7 +347,7 @@ Maybe now you have a handful of very similar looking behaviors, interceptors, mi
 
 It's possible to abstract all of these pipelines and write adapters for a single interface. This is the premise behind [Aspectos](https://github.com/connellsharp/Aspectos); a mini library I put together. All you do is implement `IAspect` once, then wire that up to the behaviors and middlewares listed above.
 
-```c#
+```csharp
 public class LoggingAspect : IAspect
 {
     private readonly ILogger _logger;

@@ -8,7 +8,7 @@ Those that have worked with me will know I'm a big advocate for Aspect-Oriented 
 
 When following this principle, I've found that changing a public method signature is more of a chore. Adding new parameters means I have to update the decorators, most of which will not even use my shiny new parameter anyway. Instead, these methods are more maintainable if we use a single object parameter and add properties to that object when needed.
 
-```c#
+```csharp
 public Task DoTheThing(ThingContext context)
 ```
 
@@ -29,7 +29,7 @@ I toyed with Minimal APIs, some kind of generic controller, but eventually I tho
 
 All requests are just DTOs (data transfer objects). There are no controllers to perform the model binding though. Instead, just put the `[RouteGet]` or `[RoutePost]` attributes straight onto the request object.
 
-```c#
+```csharp
 [RouteGet("/films/{id}/actors")]
 public class GetFilmActorsRequest
 {
@@ -51,7 +51,7 @@ Once that request object is created, it is passed into whatever implementation o
 
 This is where we're going to implement a generic pipeline as one generic class. All request models will then use this same generic implementation.
 
-```c#
+```csharp
 internal class GenericRequestHandler<T> : IRequestHandler<T>
 {
     private readonly IValidator<T> _validator;
@@ -87,7 +87,7 @@ Returning from the handler is exactly the same as returning from a controller ac
 
 Or we could use an `IResultFilter`. You can place action filters on the request DTO itself, or register them globally. Everything works just like it would do in a controller.
 
-```c#
+```csharp
 public class ValidationFailureResultFilter : IResultFilter
 {
     public void OnResultExecuting(ResultExecutingContext context)

@@ -11,7 +11,7 @@ There are different kinds of events found in event-driven systems. They often re
 
 In **Domain-Driven Design** (DDD), domain events are the things that happen that are of interest to a domain expert. They are written in the ubiquitous language of the domain.
 
-```c#
+```csharp
 public class SomethingHappenedEvent : IDomainEvent
 {
     // props
@@ -20,7 +20,7 @@ public class SomethingHappenedEvent : IDomainEvent
 
 These are raised when changes are made to domain **aggregates**. When domain events are dispatched, their handlers usually make more changes to other aggregates.
 
-```c#
+```csharp
 internal class SomethingHappenedEventHandler : IDomainEventHandler<SomethingHappenedEvent>
 {
     // ctor
@@ -52,7 +52,7 @@ When all requests behave this way, it's easy to define a single behaviour, writi
 
 We can implement our own [decorator pattern](https://refactoring.guru/design-patterns/decorator) to ensure that events are dispatched when we commit the unit of work. Or, if we use [MediatR](https://github.com/jbogard/MediatR) to send the requests to our application, we can implement a **pipeline behavior**.
 
-```c#
+```csharp
 internal class CommitPipelineBehavior : IPipelineBehavior
 {
     // ctor
@@ -84,7 +84,7 @@ Because our database transaction has already been committed, we will need to ens
 
 One way of achieving this is by implementing a **generic domain event handler** for all domain events.
 
-```c#
+```csharp
 internal class DomainEventNotificationOutboxHandler<TEvent> : IDomainEventHandler<TEvent>
     where TEvent : IDomainEvent
 {
@@ -119,7 +119,7 @@ Because they are public, they must be **versioned** somehow. We can't make break
 
 Rather than publishing the events, another option is to allow clients to query them. We would need to persist each event to some storage.
 
-```c#
+```csharp
 internal class EventStoreHandler<TEvent> : IDomainEventHandler<TEvent>
     where TEvent : IDomainEvent
 {

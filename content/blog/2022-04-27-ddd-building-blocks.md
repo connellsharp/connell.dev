@@ -19,7 +19,7 @@ They usually represent a change to some kind of state.
 
 There aren't many solid rules on how to implement them, but they tend to look like DTOs.
 
-```c#
+```csharp
 public class BlogWrittenEvent : IDomainEvent
 {
     public string AuthorName { get; init; }
@@ -40,7 +40,7 @@ I've chosen to have them all inherit [an `IDomainEvent` interface here](https://
 
 Some domain concepts are defined by their value. Value Objects have **structural equality** with each other. That is, if they have all the same values on all the same members, they are considered equal.
 
-```c#
+```csharp
 public class BankDetails : ValueObject
 {
     public BankDetails(string sortCode, string accountNumber)
@@ -67,7 +67,7 @@ They are also **immutable**. You can't mutate a string or an integer for the sam
 
 But instead of init-only properties, I have used a constructor here as a standard, because we must ensure it is **impossible to construct an invalid value**. In this case the `SortCode` and `AccountNumber` types are also Value Objects which do their own validation.
 
-```c#
+```csharp
 public class SortCode : ValueObject
 {
     public BankDetails(string value)
@@ -98,7 +98,7 @@ Other domain objects may have all the exact same values but would still not be c
 
 Entities are mutable -- we can change their state. Therefore, they have a history, which we can represent through Domain Events.
 
-```c#
+```csharp
 public class Hair : Entity
 {
     // ctor
@@ -130,7 +130,7 @@ The base class also includes a standard `Id` property which all entities must ha
 
 Entities are usually loaded from a database, so must have a constructor that can populate all properties. You'll usually need to create fresh new entities too, so you would either need a second constructor, or you could use a factory class or method to create fresh new entities in the default state.
 
-```c#
+```csharp
 public class Hair : Entity
 {
     // ctor to be used when loaded from database
@@ -158,7 +158,7 @@ One of the entities in the aggregate is the **aggregate root**. All other object
 
 The root can therefore ensure the state of the aggregate is valid.
 
-```c#
+```csharp
 public class Car : Entity, IAggregateRoot
 {
     // ctor
@@ -185,7 +185,7 @@ There doesn't need to be any base type for these. They're just normal classes th
 
 We don't store individual entities, we write the entire aggregates using repositories.
 
-```c#
+```csharp
 public interface IRepository<T>
     where T : IAggregateRoot
 {
@@ -210,7 +210,7 @@ You may not need an `Update` method if you have some kind of change tracking, su
 
 Perhaps controversially, we could also define an abstraction for a data transaction. We could use our repositories to do work such as add new aggregates, modify them, delete them, but none of that work actually happens until we commit the work, so it is all persisted as one atomic operation.
 
-```c#
+```csharp
 public interface IUnitOfWork
 {
     Task Commit();

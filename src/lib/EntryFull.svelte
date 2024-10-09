@@ -8,6 +8,16 @@
     export let meta: { date: Date | undefined; tags: string[] };
     export let youtubeId: string | undefined;
     export let link: { text: string; externalUrl: string } | undefined;
+
+    import hljs from 'highlight.js';
+    import '../styles/highlight.css';
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
 </script>
 
 <style lang="scss">

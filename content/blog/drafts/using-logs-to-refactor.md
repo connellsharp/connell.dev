@@ -10,7 +10,7 @@ One of my pet peeves in software is seeing so much boilerplate logging code ever
 
 Take this example:
 
-```c#
+```csharp
 public bool IsReady()
 {
     if(certainObject.HasSomeFlag)
@@ -43,7 +43,7 @@ This method reports two different outputs:
 
 Why do we need two different outputs for each state here? We can design the method to **return a value that is useful to both programs and programmers**.
 
-```c#
+```csharp
 public ReadyState GetReadyState()
 {
     if(certainObject.HasSomeFlag)

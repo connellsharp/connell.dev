@@ -88,8 +88,10 @@ article {
     overflow: scroll;
   }
   
-  code {
+  pre code {
     font-size: 0.85em;
     font-family:'Bitstream Vera Sans Mono','Courier', monospace;
+    display: block;
+    overflow-x: auto;
   }
 }
