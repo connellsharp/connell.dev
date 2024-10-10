@@ -28,6 +28,10 @@
         line-height: 1.7;
         margin: 1em 0 15px;
     }
+
+    .read-more-container {
+        margin-top: 10px;
+    }
 </style>
 
 <Entry {invertDarkImages}>
@@ -44,6 +48,8 @@
     </div>
     
     {#if link.externalUrl}
-        <ReadMoreLink link={link} />
+        <p class="read-more-container">
+            <ReadMoreLink link={link} />
+        </p>
     {/if}
 </Entry>
