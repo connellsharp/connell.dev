@@ -29,6 +29,13 @@
             &.twitter { content: url("/socials/twitter-white.svg"); }
             &.github { content: url("/socials/github-white.svg"); }
         }
+
+        &:hover {
+            filter: brightness(var(--hover-brightness));
+
+            &.twitter { filter: contrast(0.4); }
+            &.github { filter: contrast(0.4); }
+        }
     }
 </style>
 

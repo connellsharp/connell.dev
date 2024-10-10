@@ -1,7 +1,6 @@
 <script lang="ts">
     import SocialIcon from "./SocialIcon.svelte";
-
-    export let links: {type:string, href:string}[] = [];
+    import { socials } from "./socials"
 </script>
 
 <style>
@@ -18,9 +17,7 @@
 </style>
 
 <div class="socials">
-    <SocialIcon type="stackoverflow" href="https://stackoverflow.com/users/369247/connell" />
-    <SocialIcon type="github" href="https://github.com/connellsharp" />
-    <SocialIcon type="youtube" href="https://youtube.com/@drawingboxes" />
-    <SocialIcon type="twitter" href="https://twitter.com/connellsharp" />
-    <SocialIcon type="sessionize" href="https://sessionize.com/connell/" />
+    {#each Object.keys(socials) as socialName}
+        <SocialIcon type={socialName} href={socials[socialName]} />
+    {/each}
 </div>

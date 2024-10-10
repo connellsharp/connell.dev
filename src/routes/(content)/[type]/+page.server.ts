@@ -16,9 +16,14 @@ export async function load({ params }) {
     const sortedFiles = files.filter(file => file.slug != '_preamble' && file.type === params.type)
                              .sort((a, b) => b.meta.date - a.meta.date);
 
+    const preambleFile = files.find(file => file.slug === '_preamble' && file.type === params.type);
+
     return {
         title: toTitleCase(params.type),
         files: sortedFiles,
-        preamble: files.find(file => file.slug === '_preamble' && file.type === params.type)?.html
+        preamble: !!preambleFile ? {
+            html: preambleFile.html,
+            socialIcon: preambleFile.socialIcon
+        } : undefined,
     };
 };

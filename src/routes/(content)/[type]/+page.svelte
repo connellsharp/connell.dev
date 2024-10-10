@@ -1,6 +1,8 @@
 <script>
     import EntryPreview from "$lib/EntryPreview.svelte";
     import Preamble from "$lib/Preamble.svelte";
+    import SocialIcon from "$lib/SocialIcon.svelte";
+    import { socials } from "$lib/socials";
 
     export let data;
 </script>
@@ -10,9 +12,9 @@
 </svelte:head>
 
 {#if data.preamble}
-<Preamble>
-    {@html data.preamble}
-</Preamble>
+    <Preamble icon={data.preamble.socialIcon}>
+        {@html data.preamble.html}
+    </Preamble>
 {/if}
 
 {#each data.files as file}

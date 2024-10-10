@@ -10,7 +10,8 @@ export type MarkdownModule = {
         thumbnail: string,
         youtube: string,
         location: string,
-        invert_dark_images: boolean
+        invert_dark_images: boolean,
+        social: string
     },
     html: string
 };
@@ -32,6 +33,7 @@ export type MarkdownFile = {
     thumbnail: string | undefined,
     youtubeId: string | undefined,
     invertDarkImages: boolean,
+    socialIcon: string | undefined,
     excerpt: string,
     html: string
 };
@@ -100,6 +102,7 @@ export function markdownFile(filePath: string, module: MarkdownModule) : Markdow
         thumbnail: module.attributes?.thumbnail ?? getYouTubeThumbnail(module.attributes.youtube),
         youtubeId: module.attributes.youtube,
         invertDarkImages: module.attributes.invert_dark_images ?? false,
+        socialIcon: module.attributes.social,
         excerpt: clipExcerpt(module.html),
         html: module.html,
     };
