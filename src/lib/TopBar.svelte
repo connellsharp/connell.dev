@@ -9,6 +9,7 @@
 
     #title {
         display: inline-block;
+        vertical-align: middle;
     }
 
     h1 {
@@ -18,7 +19,6 @@
     }
 
     #subtitle {
-        margin-top: 5px;
         color: var(--foreground-off);
     }
 
@@ -26,6 +26,7 @@
         font-size: 1.2em;
         display: inline-block;
         margin: 10px;
+        vertical-align: text-top;
     }
 
     a {
