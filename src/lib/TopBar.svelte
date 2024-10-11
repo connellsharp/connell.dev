@@ -1,10 +1,23 @@
 <script>
     export let navLinks = [];
+    export let showAvatar = false;
 </script>
 
-<style>
+<style lang="scss">
     header {
         text-align: center;
+    }
+
+    #avatar {
+        display: inline-block;
+        margin-top: 15px;
+        vertical-align: top;
+
+        img {
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+        }
     }
 
     #title {
@@ -34,26 +47,35 @@
         font-weight: 300;
         letter-spacing: 1px;
         margin: 0 10px;
-    }
+        display: inline-block;
 
-    a:hover {
-        color: var(--blue);
-    }
+        &:hover {
+            color: var(--blue);
+        }
 
-    a.green:hover {
-        color: var(--green);
-    }
+        &.green:hover {
+            color: var(--green);
+        }
 
-    a.purple:hover {
-        color: var(--purple);
-    }
+        &.purple:hover {
+            color: var(--purple);
+        }
 
-    a.red:hover {
-        color: var(--red);
+        &.red:hover {
+            color: var(--red);
+        }
     }
 </style>
 
 <header>
+    {#if showAvatar}
+        <div id="avatar">
+            <a href="/">
+                <img src="https://github.com/connellsharp.png" alt="Avatar" />
+            </a>
+        </div>
+    {/if}
+
     <div id="title">
         <h1><a href="/">Connell</a></h1>
         <p id="subtitle">Software Engineer</p>
