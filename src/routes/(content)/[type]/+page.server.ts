@@ -1,4 +1,5 @@
 import { markdownFile, type MarkdownModule } from '$lib/markdown';
+import { error } from '@sveltejs/kit';
 const allFiles = import.meta.glob('/content/*/*.md');
 
 function toTitleCase(str: string) {
@@ -15,6 +16,10 @@ export async function load({ params }) {
 
     const sortedFiles = files.filter(file => file.slug != '_preamble' && file.type === params.type)
                              .sort((a, b) => b.meta.date - a.meta.date);
+
+    if(sortedFiles.length == 0) {
+        throw error(404, 'Page not found');
+    }
 
     const preambleFile = files.find(file => file.slug === '_preamble' && file.type === params.type);
 
