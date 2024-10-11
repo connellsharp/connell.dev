@@ -7,7 +7,7 @@ invert_dark_images: true
 
 That's what it all comes down to. Not to diminish anyone's long, hardworking career, but every design decision we make ultimately boils down to where we want to define a certain boundary. What concepts should we couple together? Which layers *"know of"* which? It's all a structure of how thoughts and ideas fit together.
 
-We do it everywhere. We don't just write everything in the `Main` method; the languages give us ways to separate our concerns. We group lines of code into methods, then we group those into classes, classes into libraries, into microservices, then sometimes even into [domain boundaries](/domain-driven-boundaries).
+We do it everywhere. We don't just write everything in the `Main` method; the languages give us ways to separate our concerns. We group lines of code into methods, then we group those into classes, classes into libraries, into microservices, then sometimes even into [domain boundaries](/blog/domain-driven-boundaries).
 
 It's very visual. We use shapes and patterns to describe different relationships. We draw boxes and give each of them some meaning, a name, and maybe even colours.
 

@@ -5,7 +5,7 @@ tags: architecture ddd cqrs
 invert_dark_images: true
 ---
 
-A lot of software engineering is about [drawing boxes](/drawing-boxes). That is, deciding how to break down the code we write. We don't just write everything in the `Main` method. We set boundaries, create abstractions, and divide things into single responsibilities.
+A lot of software engineering is about [drawing boxes](/blog/drawing-boxes). That is, deciding how to break down the code we write. We don't just write everything in the `Main` method. We set boundaries, create abstractions, and divide things into single responsibilities.
 
 In C#, we group code into methods. Then we group those into classes and decide that some methods are `private`. We do the same again, grouping classes into libraries, and then the same again within a whole solution. At each level we decide what is `internal` and what becomes our **public contracts**.
 
@@ -67,7 +67,7 @@ Now, let's build up that architecture, starting with the middle and working our 
 
 At the heart of our application is a single project with no dependencies. For this, we will use **Domain-Driven Design**. This is not a requirement of Onion Architecture, but it is a convenient way to divide our logic.
 
-Before introducing the building blocks of DDD, it's important to mention that DDD is not fundamentally about the technical detail, but is focused around the domain model and how the language and structure of the code should [match the business domain](/domain-driven-boundaries). It's a collaboration between technical and domain experts.
+Before introducing the building blocks of DDD, it's important to mention that DDD is not fundamentally about the technical detail, but is focused around the domain model and how the language and structure of the code should [match the business domain](/blog/domain-driven-boundaries). It's a collaboration between technical and domain experts.
 
 A great way to develop this language is **Event Storming**, where the domain experts tell a story of what happens in their domain. Throughout the story they will describe events that are of interest to them, which we model as **Domain Events**.
 

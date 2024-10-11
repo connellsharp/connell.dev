@@ -34,7 +34,7 @@ I see this sort of code far too often. Let me explain what's wrong with it.
 
 ##### 1. Implicit boundary
 
-It's all about [drawing boxes](/drawing-boxes). The developer who wrote those log lines defined the concept of "a thing", but only in the logs. If we saw the same thing with comments, we would want to refactor into a new `DoAThing()` method, so I feel we should do the same here. The structure of our code should match how we break down the problem in our minds.
+It's all about [drawing boxes](/blog/drawing-boxes). The developer who wrote those log lines defined the concept of "a thing", but only in the logs. If we saw the same thing with comments, we would want to refactor into a new `DoAThing()` method, so I feel we should do the same here. The structure of our code should match how we break down the problem in our minds.
 
 It's not just about grouping things together and hiding them in a different part of the file. A method scopes the variables so they cannot interfere with those outside. Extracting a method forces us to explicitly define which arguments are passed into the method and which are returned from it. The boundary is clearer and more rigid, which helps us avoid spaghetti code as it develops.
 

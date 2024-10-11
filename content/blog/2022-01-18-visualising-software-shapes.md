@@ -7,7 +7,7 @@ invert_dark_images: true
 
 When I think of a software system, I see shapes and lines connecting groups of smaller shapes and smaller lines. Like a galaxy of solar systems with planets of continents, each with roads connecting cities with villages and hamlets. It's a structure that fits related concepts together and hides away complexity at different scales.
 
-Sometimes I wonder if everyone views systems like this. We [whiteboard boxes and arrows](/drawing-boxes) to explain the shapes of these structures, creating these visual cues that help imagine how concepts fit together and where certain code might live within a solution.
+Sometimes I wonder if everyone views systems like this. We [whiteboard boxes and arrows](/blog/drawing-boxes) to explain the shapes of these structures, creating these visual cues that help imagine how concepts fit together and where certain code might live within a solution.
 
 We continue to build our systems based off the diagrams. Whilst each box might not perfectly match up to a class or class library, the structure, the concepts and ideas and how they relate -- that's what's important.
 
