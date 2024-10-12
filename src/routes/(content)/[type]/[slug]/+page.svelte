@@ -2,7 +2,7 @@
     import EntryFull from "$lib/EntryFull.svelte";
 
     export let data;
-    const file = data.file;
+    $: file = data.file;
 </script>
 
 <svelte:head>
