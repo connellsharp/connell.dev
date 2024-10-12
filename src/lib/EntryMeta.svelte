@@ -10,6 +10,11 @@
         const month = date.toLocaleString("default", { month: "long" });
         const year = date.getFullYear();
 
+        if(day === 1 && date.getMonth() === 0) {
+            // Let's assume I don't publish things on new year's day
+            return year + '';
+        }
+
         const getOrdinal = (number: number) => {
             if (number > 3 && number < 21) {
                 return "th";
