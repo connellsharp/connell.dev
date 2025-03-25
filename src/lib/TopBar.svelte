@@ -1,22 +1,25 @@
 <script>
     export let navLinks = [];
-    export let showAvatar = false;
+    export let showAvatar = true;
 </script>
 
 <style lang="scss">
     header {
+        margin-top: 10px;
         text-align: center;
     }
 
     #avatar {
         display: inline-block;
-        margin-top: 15px;
+        margin-top: 10px;
         vertical-align: top;
 
+        a {
+            margin: 0 2px;
+        }
+
         img {
-            width: 70px;
-            height: 70px;
-            border-radius: 100%;
+            width: 60px;
         }
     }
 
@@ -26,7 +29,6 @@
     }
 
     h1 {
-        padding-top: 10px;
         font-size: 2.5em;
         font-weight: 300;
     }
@@ -71,7 +73,7 @@
     {#if showAvatar}
         <div id="avatar">
             <a href="/">
-                <img src="https://github.com/connellsharp.png" alt="Avatar" />
+                <img src="/header/silhouette.svg" alt="Avatar" />
             </a>
         </div>
     {/if}
