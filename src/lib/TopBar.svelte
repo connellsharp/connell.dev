@@ -11,7 +11,7 @@
 
     #avatar {
         display: inline-block;
-        margin-top: 10px;
+        margin-top: 12px;
         vertical-align: top;
 
         a {

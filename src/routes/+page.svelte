@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-    <title>Connell - Software Engineer</title> 
+    <title>Connell - Software Engineer</title>
 </svelte:head>
 
 <StickyFooter>
