@@ -11,7 +11,7 @@
 
     @media (max-width: 460px) {
         .socials {
-            width: 250px;
+            width: 260px;
         }
     }
 </style>

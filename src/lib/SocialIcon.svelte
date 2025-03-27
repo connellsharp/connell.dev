@@ -24,6 +24,8 @@
         &.stackoverflow { content: url("/socials/stackoverflow.svg"); }
         &.github { content: url("/socials/github.svg"); --scale: 0.8; }
         &.sessionize { content: url("/socials/sessionize.svg"); --scale: 0.7; }
+        &.bluesky { content: url("/socials/bluesky.svg"); --scale: 0.8; }
+        &.linkedin { content: url("/socials/linkedin.svg"); --scale: 0.8; }
 
         @media (prefers-color-scheme: dark) {
             &.twitter { content: url("/socials/twitter-white.svg"); }
