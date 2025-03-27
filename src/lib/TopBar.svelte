@@ -9,14 +9,30 @@
         text-align: center;
     }
 
+    #home {
+        display: inline-block;
+        margin: 0 10px;
+        text-decoration: none;
+
+        &:hover {
+
+            img {
+                filter: brightness(0) saturate(100%) invert(39%) sepia(94%) saturate(411%) hue-rotate(182deg) brightness(97%) contrast(94%);
+            }
+
+            h1, #subtitle {
+                color: var(--blue);
+                text-decoration: underline;
+                text-decoration-thickness: 0.5px;
+                text-underline-offset: 3px;
+            }
+        }
+    }
+
     #avatar {
         display: inline-block;
-        margin-top: 12px;
         vertical-align: top;
-
-        a {
-            margin: 0 2px;
-        }
+        margin: 12px 12px 0 0;
 
         img {
             width: 60px;
@@ -26,62 +42,63 @@
     #title {
         display: inline-block;
         vertical-align: middle;
-    }
 
-    h1 {
-        font-size: 2.5em;
-        font-weight: 300;
-    }
+        h1 {
+            color: var(--foreground);
+            font-size: 2.5em;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
 
-    #subtitle {
-        color: var(--foreground-off);
+        #subtitle {
+            color: var(--foreground-off);
+        }
     }
 
     nav {
         font-size: 1.2em;
         display: inline-block;
-        margin: 10px;
         vertical-align: text-top;
-    }
 
-    a {
-        color: var(--foreground);
-        font-weight: 300;
-        letter-spacing: 1px;
-        margin: 0 10px;
-        display: inline-block;
+        a {
+            color: var(--foreground);
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin: 10px 10px 0 10px;
+            display: inline-block;
 
-        &:hover {
-            color: var(--blue);
-        }
+            &:hover {
+                color: var(--blue);
+            }
 
-        &.green:hover {
-            color: var(--green);
-        }
+            &.green:hover {
+                color: var(--green);
+            }
 
-        &.purple:hover {
-            color: var(--purple);
-        }
+            &.purple:hover {
+                color: var(--purple);
+            }
 
-        &.red:hover {
-            color: var(--red);
+            &.red:hover {
+                color: var(--red);
+            }
         }
     }
 </style>
 
 <header>
-    {#if showAvatar}
-        <div id="avatar">
-            <a href="/">
-                <img src="/header/silhouette.svg" alt="Avatar" />
-            </a>
-        </div>
-    {/if}
+    <a id="home" href="/">
+        {#if showAvatar}
+            <div id="avatar">
+                    <img src="/header/silhouette.svg" alt="Avatar" />
+            </div>
+        {/if}
 
-    <div id="title">
-        <h1><a href="/">Connell</a></h1>
-        <p id="subtitle">Software Engineer</p>
-    </div>
+        <div id="title">
+            <h1>Connell</h1>
+            <p id="subtitle">Software Engineer</p>
+        </div>
+    </a>
 
     {#if navLinks.length > 0}
     <nav>
