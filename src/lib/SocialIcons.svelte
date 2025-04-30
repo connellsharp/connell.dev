@@ -13,6 +13,7 @@
         .socials {
             display: grid;
             grid-template-columns: repeat(3, 70px);
+            align-items: center;
             width: 210px;
         }
     }
