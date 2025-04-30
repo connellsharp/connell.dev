@@ -6,7 +6,7 @@
     #about {
         line-height: 1.7;
         margin: 20px auto 0;
-        padding: 0 10px;
+        padding: 0 20px;
         max-width: 630px;
         text-align: justify;
     }
