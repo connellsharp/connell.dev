@@ -10,13 +10,15 @@
     border-radius: 10px;
     text-align: center;
     letter-spacing: 0.5px;
+    margin: 5px 0;
 
-    font-size:1.2em;
+    font-size: 1.2em;
     font-weight: 500;
 
     a {
-        display:block;
-        width: 130px;
+        display: block;
+        width: var(--box-width);
+        box-sizing: border-box;
         padding: 20px;
         color: var(--background);
     }

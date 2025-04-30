@@ -7,17 +7,18 @@
 
 <style lang="scss">
     .main {
-        --box-width: 170px;
         --width: min(90%, 450px);
+        --box-width: max(130px, min(170px, calc(50vw - 100px)));
+        --arrow-size: max(50px, min(70px, calc(20vw - 50px)));
         width: var(--width);
         margin: 40px auto;
         text-align: center;
-        align-items: center;
     }
 
-    /* big screens */
-    @media (min-width: 500px) {
+    /* normal screens */
+    @media (min-width: 390px) {
         .box-container {
+            flex-grow: 1;
             display: inline-block;
             width: var(--box-width);
         }
@@ -32,18 +33,30 @@
 
             &.second {
                 --arrow-rotation: 90deg;
-                margin-right: 100px;
+                width: var(--box-width);
+                margin-right: calc(var(--arrow-size) + 5px);
             }
 
             &.other-arrow {
                 --arrow-rotation: 90deg;
-                margin-left: 100px;
+                width: var(--box-width);
             }
         }
     }
 
-    /* small screens */
-    @media (max-width: 499.9px) {
+
+    @media (max-width: 500px) {
+        .main {
+            font-size: 0.9em;
+        }
+    }
+
+    /* tiny screens */
+    @media (max-width: 389.9px) {
+        .main {
+            --box-width: 170px;
+        }
+
         .left {
             margin-right: calc(var(--width) - var(--box-width));
         }
@@ -75,11 +88,11 @@
         </div>
         {#if i < links.length - 1}
             <div class="arrow-container {i % 2 ? "second" : "first"}">
-                <Arrow size={70} />
+                <Arrow />
             </div>
             {#if i % 2}
             <div class="arrow-container other-arrow">
-                <Arrow size={70} />
+                <Arrow />
             </div>
             {/if}
         {/if}
