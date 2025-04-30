@@ -11,7 +11,9 @@
 
     @media (max-width: 460px) {
         .socials {
-            width: 260px;
+            display: grid;
+            grid-template-columns: repeat(3, 70px);
+            width: 210px;
         }
     }
 </style>

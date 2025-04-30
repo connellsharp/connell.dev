@@ -10,6 +10,7 @@
     }
 
     .icon {
+        text-align: center;
         display: inline-block;
         vertical-align: middle;
         --size: 40px;
