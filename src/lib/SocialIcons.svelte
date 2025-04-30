@@ -6,7 +6,7 @@
 <style>
     .socials {
         text-align: center;
-        margin: 0 auto -10px;
+        margin: 5px auto -5px;
     }
 
     @media (max-width: 460px) {

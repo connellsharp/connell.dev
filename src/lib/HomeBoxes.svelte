@@ -11,7 +11,7 @@
         --box-width: max(130px, min(170px, calc(50vw - 100px)));
         --arrow-size: max(50px, min(70px, calc(20vw - 50px)));
         width: var(--width);
-        margin: 40px auto;
+        margin: 35px auto 40px;
         text-align: center;
     }
 

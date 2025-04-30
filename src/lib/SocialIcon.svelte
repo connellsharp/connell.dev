@@ -6,7 +6,7 @@
 <style>
     a {
         display: inline-block;
-        margin: 10px;
+        margin: 5px 10px;
     }
 
     .icon {
