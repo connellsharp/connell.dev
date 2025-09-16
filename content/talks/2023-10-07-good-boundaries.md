@@ -2,6 +2,7 @@
 title: "Good Boundaries: Bounded Contexts and Conway's Law"
 location: DDD East Midlands Conference
 tags: architecture ddd bounded-contexts conways-law
+youtube: nslg2lA9Ow4
 thumbnail: /thumbnails/dddem-2023.jpg
 ---
 
@@ -12,7 +13,3 @@ Then we’ll dive into the structure of a business problem domain. We’ll take 
 Finally, we’ll look into the organisational structure of a company. We’ll look at Team Topologies, the types of teams, how they communicate, and how those human communication structures affect your architecture.
 
 This visual presentation that brings these things together and aims to give you a different perspective on the structures we find.
-
-----
-
-*No video uploaded yet, because I'm still actively doing this talk.*
