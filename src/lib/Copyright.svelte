@@ -7,6 +7,6 @@
 </style>
 
 <div id="copyright">
-    &copy; Connell Sharp 2024.
+    &copy; Connell Sharp {new Date().getFullYear()}.
     <a href="https://github.com/connellsharp/connell.dev">Hosted by GitHub</a>.
 </div>
