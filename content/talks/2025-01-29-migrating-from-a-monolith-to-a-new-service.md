@@ -2,7 +2,7 @@
 title: "Migrating from a Monolith to a New Service"
 location: NDC London
 tags: architecture microservices agile
-youtube: SFgZPWc4Kf8
+youtube: OaSgOmN7PhA
 thumbnail: /thumbnails/ndc-london-2025.png
 ---
 
