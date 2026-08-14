@@ -1,25 +1,25 @@
 <script>
     export let type = "twitter";
     export let href = "#";
+    export let size = "40px";
 </script>
 
 <style>
     a {
         display: inline-block;
-        margin: 5px 10px;
+        padding: 15px 10px;
+        width: calc(var(--size));
     }
 
     .icon {
         text-align: center;
         display: inline-block;
         vertical-align: middle;
-        --size: 40px;
-        --scale: 1;
         width: calc(var(--size) * var(--scale));
         height: calc(var(--size) * var(--scale));
         line-height: calc(var(--size) * var(--scale));
-        padding: 5px;
 
+        --scale: 1;
         &.twitter { content: url("/socials/twitter.svg"); --scale: 0.7; }
         &.youtube { content: url("/socials/youtube.svg"); }
         &.stackoverflow { content: url("/socials/stackoverflow.svg"); }
@@ -42,6 +42,6 @@
     }
 </style>
 
-<a href={href}>
+<a href={href} style={`--size: ${size};`}>
     <img class="icon {type}" src={`/socials/${type}.svg`} alt={type} />
 </a>
