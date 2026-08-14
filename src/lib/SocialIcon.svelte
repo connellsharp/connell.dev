@@ -4,20 +4,34 @@
     export let size = "40px";
 </script>
 
-<style>
+<style lang="scss">
     a {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
         padding: 15px;
         width: calc(var(--size));
+        height: calc(var(--size));
+
+        &:hover {
+            .icon {
+                filter: brightness(var(--hover-brightness));
+
+                &.twitter { filter: contrast(0.4); }
+                &.github { filter: contrast(0.4); }
+            }
+
+            border-radius: 100%;
+            background-color: var(--background-very-close);
+        }
     }
 
     .icon {
         text-align: center;
-        display: inline-block;
-        vertical-align: middle;
+        display: block;
         width: calc(var(--size) * var(--scale));
         height: calc(var(--size) * var(--scale));
-        line-height: calc(var(--size) * var(--scale));
 
         --scale: 1;
         &.twitter { content: url("/socials/twitter.svg"); --scale: 0.7; }
@@ -31,13 +45,6 @@
         @media (prefers-color-scheme: dark) {
             &.twitter { content: url("/socials/twitter-white.svg"); }
             &.github { content: url("/socials/github-white.svg"); }
-        }
-
-        &:hover {
-            filter: brightness(var(--hover-brightness));
-
-            &.twitter { filter: contrast(0.4); }
-            &.github { filter: contrast(0.4); }
         }
     }
 </style>
