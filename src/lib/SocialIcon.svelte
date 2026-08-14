@@ -7,7 +7,7 @@
 <style>
     a {
         display: inline-block;
-        padding: 15px 10px;
+        padding: 15px;
         width: calc(var(--size));
     }
 

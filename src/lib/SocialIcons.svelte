@@ -1,7 +1,6 @@
 <script lang="ts">
     import SocialIcon from "./SocialIcon.svelte";
     import { socials } from "./socials"
-    export let size = "40px";
 </script>
 
 <style>
@@ -13,9 +12,10 @@
     @media (max-width: 680px) {
         .socials {
             display: grid;
-            grid-template-columns: repeat(3, 70px);
+            grid-template-columns: repeat(3, 100px);
             align-items: center;
-            width: 210px;
+            justify-items: center;
+            width: 300px;
             margin-bottom: 30px;
         }
     }
@@ -23,6 +23,6 @@
 
 <div class="socials">
     {#each Object.keys(socials) as socialName}
-        <SocialIcon {size} type={socialName} href={socials[socialName]} />
+        <SocialIcon size="50px" type={socialName} href={socials[socialName]} />
     {/each}
 </div>
